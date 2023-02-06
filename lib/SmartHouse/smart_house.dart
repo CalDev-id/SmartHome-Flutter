@@ -12,16 +12,16 @@ class SmartHome extends StatefulWidget {
 class _SmartHomeState extends State<SmartHome> {
   final List mySmartDevices = [
     //[smartdevicename, smartdeviceicon, powerstatus]
-    ["Smart Light", "lib/Assets/light.png", true],
-    ["Smart AC", "lib/Assets/ac.png", false],
-    ["Smart TV", "lib/Assets/tv.png", false],
-    ["Smart Fan", "lib/Assets/fan.png", false],
+    ["Kita Ikuyo", "lib/Assets/kita2.png", true, Colors.red],
+    ["Nijika Ijichi", "lib/Assets/nijika2.png", false, Colors.yellow[600]],
+    ["Ryou yamada", "lib/Assets/ryo2.png", false, Colors.blue],
+    ["Hitori Gotou", "lib/Assets/bocchi2.png", false, Colors.pink],
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,28 +49,40 @@ class _SmartHomeState extends State<SmartHome> {
             //title
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
-              child: Row(children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Welcome Home',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.grey[700],
-                      ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Bocchi',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                        Text(
+                          'THE ROCK',
+                          style: GoogleFonts.bebasNeue(
+                            fontSize: 50,
+                          ),
+                        ),
+                        Text(
+                          "The Kessoku band",
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey[700],
+                          ),
+                        )
+                      ],
                     ),
-                    Text(
-                      'Heical Chandra',
-                      style: GoogleFonts.bebasNeue(
-                        fontSize: 50,
-                      ),
-                    ),
-                  ],
-                ),
-                Container()
-              ]),
+                    Image.asset(
+                      "lib/Assets/kessoku.png",
+                      height: 100,
+                    )
+                  ]),
             ),
             const SizedBox(height: 20),
 
@@ -85,8 +97,8 @@ class _SmartHomeState extends State<SmartHome> {
             const SizedBox(height: 20),
             //smart devices
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40),
-              child: Text('Smart Devices',
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Text('Members :',
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -105,6 +117,7 @@ class _SmartHomeState extends State<SmartHome> {
                         smartDeviceName: mySmartDevices[index][0],
                         iconPath: mySmartDevices[index][1],
                         powerOn: mySmartDevices[index][2],
+                        color: mySmartDevices[index][3],
                         onChanged: (value) {
                           setState(() {
                             mySmartDevices[index][2] = value;

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ichi_app">
    <application
-        android:label="ichi_app"
+        android:label="Bocchi App"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
